@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13 oct. 2017 20:33:40 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Entity.Cheque" table="cheque" catalog="podium" optimistic-lock="version">
+        <composite-id name="id" class="Entity.ChequeId">
+            <key-property name="num" type="long">
+                <column name="num" />
+            </key-property>
+            <key-property name="banque" type="string">
+                <column name="banque" length="500" />
+            </key-property>
+            <key-property name="proprietaire" type="string">
+                <column name="proprietaire" length="500" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="paiement" class="Entity.Paiement" fetch="select">
+            <column name="id_p" not-null="true" />
+        </many-to-one>
+        <property name="dateVers" type="string">
+            <column name="date_vers" length="500" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

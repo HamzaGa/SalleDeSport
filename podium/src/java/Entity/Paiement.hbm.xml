@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13 oct. 2017 20:33:40 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Entity.Paiement" table="paiement" catalog="podium" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="adherent" class="Entity.Adherent" fetch="select">
+            <column name="num_insc" not-null="true" />
+        </many-to-one>
+        <many-to-one name="discipline" class="Entity.Discipline" fetch="select">
+            <column name="id_disp" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="Entity.User" fetch="select">
+            <column name="user" length="500" not-null="true" />
+        </many-to-one>
+        <property name="dateP" type="timestamp">
+            <column name="date_p" length="19" not-null="true" />
+        </property>
+        <property name="nbrMois" type="int">
+            <column name="nbr_mois" not-null="true" />
+        </property>
+        <property name="montant" type="string">
+            <column name="montant" length="500" not-null="true" />
+        </property>
+        <property name="moyenP" type="string">
+            <column name="moyen_p" length="500" not-null="true" />
+        </property>
+        <set name="cheques" table="cheque" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="id_p" not-null="true" />
+            </key>
+            <one-to-many class="Entity.Cheque" />
+        </set>
+    </class>
+</hibernate-mapping>

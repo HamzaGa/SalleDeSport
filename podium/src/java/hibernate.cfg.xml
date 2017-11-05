@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost/podium</property>
+    <property name="hibernate.connection.username">root</property>
+    <mapping resource="Entity/Cheque.hbm.xml"/>
+    <mapping resource="Entity/Paiement.hbm.xml"/>
+    <mapping resource="Entity/Discipline.hbm.xml"/>
+    <mapping resource="Entity/Pointage.hbm.xml"/>
+    <mapping resource="Entity/Adherent.hbm.xml"/>
+    <mapping resource="Entity/User.hbm.xml"/>
+  </session-factory>
+</hibernate-configuration>

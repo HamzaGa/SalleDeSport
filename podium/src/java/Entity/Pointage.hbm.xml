@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 13 oct. 2017 20:33:40 by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="Entity.Pointage" table="pointage" catalog="podium" optimistic-lock="version">
+        <id name="numInsc" type="long">
+            <column name="num_insc" />
+            <generator class="foreign">
+                <param name="property">adherent</param>
+            </generator>
+        </id>
+        <one-to-one name="adherent" class="Entity.Adherent" constrained="true"></one-to-one>
+        <property name="nbrPoints" type="int">
+            <column name="nbr_points" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>
