@@ -78,11 +78,7 @@ public class AdherentDAO implements IAdherentDAO {
       q = session.createQuery("from Adherent");
       //q.setParameter("i",id);  
       adherents = q.list();
-       
-      for (Adherent a1 : adherents) {
-            Hibernate.initialize(a1.getDisciplines());  
-          //System.out.println(("ahlaaa " + a1.getDisciplines().size()));
-        }
+      for (Adherent a1 : adherents) Hibernate.initialize(a1.getDisciplines()); 
       session.getTransaction().commit();
       session.close();
       return adherents;
@@ -98,9 +94,6 @@ public class AdherentDAO implements IAdherentDAO {
       //List<Adherent> adherents;
       Adherent a = (Adherent) q.uniqueResult();
       Hibernate.initialize(a.getDisciplines());
-      Set <Discipline> x = a.getDisciplines();
-              for (Discipline xx : x)
-      System.out.println("Saluuuuuuuuuuuut " + xx.getNom());
       session.getTransaction().commit();
       session.close();
       return a;     

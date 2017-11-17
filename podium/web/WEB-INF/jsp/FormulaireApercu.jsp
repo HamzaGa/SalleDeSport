@@ -285,7 +285,7 @@
                                                                 <div class="col-md-7"><H3><b>Disciplines:</b>
                                                                         <select class="selectpicker" onChange="afficherDisp();" id="listeDisp">
                                                                           <option value="1">1</option>
-                                                                          <option value="2">2</option>
+                                                                          <c:if test="${f.dispchoix2==null}">  <option value="2">2</option> </c:if>
                                                                         </select> 
                                                                     </H3> 
 								      

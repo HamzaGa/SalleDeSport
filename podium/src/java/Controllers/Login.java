@@ -9,7 +9,6 @@ import DAO.Classes.BO.UserBO;
 import Entity.*;
 import Model.FormulaireInscri;
 import javax.validation.Valid;
-import org.apache.commons.lang.Validate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

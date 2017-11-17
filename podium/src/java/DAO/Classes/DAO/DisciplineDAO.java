@@ -7,19 +7,12 @@ package DAO.Classes.DAO;
 
 import Entity.FactoryUtil;
 import DAO.Interfaces.DAO.IDisciplineDAO;
-import Entity.Adherent;
 import Entity.Discipline;
 import java.util.List;
-import java.util.Set;
-import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-//import org.hibernate.cfg.AnnotationConfiguration;
-//import static org.hsqldb.DatabaseManager.getSession;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.hibernate.cfg.Configuration;
 
 /**
  *
@@ -96,5 +89,15 @@ public class DisciplineDAO implements IDisciplineDAO{
         
     }
 
-    
+    @Override
+    public List getByNom(String nom) {
+      factory = f.getSessionFactory();
+      session = factory.openSession();  
+      tx = session.beginTransaction();
+      Query query = session.createQuery("from Discipline where nom=:nomDisp").setString("nomDisp",nom);
+      List list = query.list();
+      tx.commit();
+      session.close();
+      return list; 
+    }  
 }

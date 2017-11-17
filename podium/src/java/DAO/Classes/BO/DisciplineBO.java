@@ -43,5 +43,10 @@ public class DisciplineBO implements IDisciplineBO{
     public Discipline getById(int id) {
         return(disciplineDAO.getById(id));
     }
+
+    @Override
+    public List getByNom(String nom) {
+        return(disciplineDAO.getByNom(nom));
+    }
     
 }

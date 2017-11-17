@@ -174,7 +174,7 @@
 								  <div class="form-group">
 								    <label for="inputEmail3" class="col-sm-5 control-label">Hommes </label>
 								    <div class="col-sm-7">
-								      <form:select id="c12" onChange="verrou();" cssClass="selectpicker" path="dispchoix.id">
+								    <form:select id="c12" onChange="verrou();" cssClass="selectpicker" path="dispchoix.id">
                                                                           <form:option value="0">Choisir une discipline</form:option>
                                                                           <c:forEach var="listValue" items="${f.d}">
                                                                               
@@ -185,7 +185,7 @@
                                                                               </c:if>
                                                                         </c:forEach>
                                                                                  
-										  </form:select>
+                                                                    </form:select>
 								    </div>
                                                                   </div>
 								  </div>      

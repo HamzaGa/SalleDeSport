@@ -8,6 +8,10 @@ package DAO.Classes.DAO;
 import Entity.FactoryUtil;
 import DAO.Interfaces.DAO.IPaiementDAO;
 import Entity.Paiement;
+import java.util.Date;
+import java.util.List;
+import org.hibernate.Hibernate;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -56,6 +60,44 @@ public class PaiementDAO implements IPaiementDAO {
       tx.commit();
       session.close(); 
     }
-    
-    
+
+    @Override
+    public List<Paiement> getByNom(String nom) {
+      factory = f.getSessionFactory();
+      session = factory.openSession();  
+      tx = session.beginTransaction();
+      Query query = session.createQuery("from Paiement where discipline.nom=:nomDisp").setString("nomDisp",nom);
+      List <Paiement> liste = query.list();
+      for (Paiement p : liste) Hibernate.initialize(p.getDiscipline());
+      for (Paiement p : liste) Hibernate.initialize(p.getAdherent());
+      tx.commit();
+      session.close();
+      return liste;
+    }
+
+    @Override
+    public Paiement getMostRecent(Long numInsc, String nomDisp) {
+      System.out.println(numInsc + " LOOL " + nomDisp);
+      factory = FactoryUtil.getSessionFactory();
+      session = factory.openSession();  
+      session.beginTransaction();
+      Query q2=session.createQuery("select max(dateP) from Paiement where (adherent.numInsc=:i and discipline.nom=:nomDisp)");
+      q2.setParameter("nomDisp",nomDisp);
+      q2.setParameter("i",numInsc);
+      Date d = (Date) q2.uniqueResult();
+      Query q = session.createQuery("from Paiement where (adherent.numInsc=:i and discipline.nom=:nomDisp and dateP=:d)");
+      q.setParameter("i",numInsc);
+      q.setParameter("nomDisp", nomDisp);
+      q.setParameter("d",d);
+      //List<Adherent> adherents;
+      Paiement p = (Paiement) q.uniqueResult();
+      if (p!= null){
+      Hibernate.initialize(p.getAdherent());
+      Hibernate.initialize(p.getDiscipline());
+      }
+      session.getTransaction().commit();
+      session.close();
+      return p;  
+    }
+       
 }

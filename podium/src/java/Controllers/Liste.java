@@ -28,9 +28,7 @@ public class Liste {
         
         AdherentBO ab = new AdherentBO();
         List <Adherent> adherents = ab.get();
-        Set <Discipline> listeDisciplines;
-        System.out.println("taille adherents avant boucle : " + adherents.size());
-        
+        Set <Discipline> listeDisciplines;        
         List adherentsHom = new ArrayList();
         for (Adherent a : adherents) {
             listeDisciplines = a.getDisciplines();

@@ -9,6 +9,7 @@ import DAO.Classes.DAO.PaiementDAO;
 import DAO.Interfaces.BO.IPaiementBO;
 import DAO.Interfaces.DAO.IPaiementDAO;
 import Entity.Paiement;
+import java.util.List;
 
 /**
  *
@@ -31,6 +32,16 @@ public class PaiementBO implements IPaiementBO {
     @Override
     public void delete(Paiement paiement) {
         paiementdao.delete(paiement);
+    }
+
+    @Override
+    public List<Paiement> getByNom(String nom) {
+        return (paiementdao.getByNom(nom));
+    }
+
+    @Override
+    public Paiement getMostRecent(Long numInsc, String nomDisp) {
+        return(paiementdao.getMostRecent(numInsc,nomDisp));
     }
     
 }

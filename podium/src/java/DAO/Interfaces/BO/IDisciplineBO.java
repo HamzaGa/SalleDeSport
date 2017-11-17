@@ -18,4 +18,5 @@ public interface IDisciplineBO {
 	void delete(Discipline discipline);
         List select();
         Discipline getById(int id);
+        List getByNom(String nom);
 }

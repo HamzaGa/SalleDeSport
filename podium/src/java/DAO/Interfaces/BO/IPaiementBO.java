@@ -6,6 +6,7 @@
 package DAO.Interfaces.BO;
 
 import Entity.Paiement;
+import java.util.List;
 
 /**
  *
@@ -15,5 +16,6 @@ public interface IPaiementBO {
         void save(Paiement paiement);
 	void update(Paiement paiement);
 	void delete(Paiement paiement);
-    
+        List<Paiement> getByNom(String nom);
+        Paiement getMostRecent(Long numInsc,String nomDisp);
 }

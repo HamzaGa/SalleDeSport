@@ -15,7 +15,8 @@
                             <div class="col-md-12">
   					<div class="content-box-large">
 		  				<div class="panel-heading">
-							<div class="panel-title">LISTE DES ADHÉRENTS</div>
+                                                    <div class="col-md-4"></div>  
+                                                    <div class="col-md-8"><H3><b>LISTE DES ADHÉRENTS</b></H3><br></div>
 							
                                                 </div>
 		  				<div class="panel-body">
@@ -23,7 +24,7 @@
 						<thead>
 							<tr>
 								
-                                                                <th>Numéro Adhérent</th>
+                                                                <th>Identifiant</th>
                                                                 <th>Nom et Prénom</th>
 								<th>Discipline</th>
 								<th>Groupe</th>
@@ -37,8 +38,8 @@
                                                     <c:forEach items="${adherents.adherents}" var="a"> 
                                                         
                                                     <form:form cssClass="form-horizontal" method="POST" action="formApercu.htm" modelAttribute="adherents" id="${i}">
-                                                    <c:forEach var="d" items="${a.disciplines}">
-                                                        <form:input type="hidden" path="a.numInsc" value="${a.numInsc}" />
+                                                        <c:forEach var="d" items="${a.disciplines}">
+                                                            <form:input type="hidden" path="a.numInsc" value="${a.numInsc}" />
                                                         <tr onclick= "javascript:document.getElementById(${i}).submit();">
                                                                     <td width = "5%">${a.numInsc}</td>
                                                                     <td width = "30%">${a.nom}  ${a.prenom}</td>
@@ -46,26 +47,12 @@
                                                                     <td width = "10%">${d.groupe}</td>
                                                                     <td width = "15%"> ${a.tel}</td>
                                                                     <td width = "20%"> ${a.dateInsc}</td>
-                                                                </tr>
+                                                        </tr>
                                                                 <c:set var="i" value="${i+ 1}"/>
 
                                                             </c:forEach>
                                                     </form:form>
                                                     </c:forEach>
-							<!--	<td>Trident</td>
-								<td>Internet Explorer 4.0</td>
-								<td>Win 95+</td>
-								<td class="center"> 4</td>
-                                                                <td class="center">C</td>
-							
-							<!--<tr class="even gradeC">
-								<td>Trident</td>
-								<td>Internet
-									 Explorer 5.0</td>
-								<td>Win 95+</td>
-								<td class="center">5</td>
-								<td class="center">C</td>
-							</tr>-->
 						</tbody>
 					</table>
 		  				</div>
@@ -78,9 +65,6 @@
 
 		  	
 		  </div>
-		</div>
-</div>
-
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="<c:url value="https://code.jquery.com/jquery.js"/>" ></script>
