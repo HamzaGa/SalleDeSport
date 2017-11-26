@@ -18,4 +18,8 @@ public interface IPaiementDAO {
 	void delete(Paiement paiement);
         List <Paiement> getByNom(String nom);
         Paiement getMostRecent(Long numInsc,String nomDisp);
+        List<Paiement> getByYear(String year);
+        List<Paiement> getByYearMonth (String year, String month);
+        List<Paiement> getByYearMonthDay (String date);
+
 }

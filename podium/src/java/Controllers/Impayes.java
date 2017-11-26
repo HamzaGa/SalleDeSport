@@ -33,11 +33,6 @@ public class Impayes {
         //int a =0;
         ListeImpayes li = new ListeImpayes();
         li.setB(0);
-        //li.setPaiement(new Paiement());
-        //li.setChoixDisp(new String());
-        //li.setNbrMoisImpayes(a);
-        //li.setImpayes (new ArrayList());
-        
         return new ModelAndView("ListeImpayes","li",li);
     }
      
@@ -49,10 +44,7 @@ public class Impayes {
         li.setB(1);
         String choix  = li.getChoixDisp();
         System.out.println(choix);
-        
-        
-        
-        
+
         DisciplineBO db = new DisciplineBO();
         List <Discipline> disps = (List <Discipline>)db.getByNom(choix);  
         
@@ -84,7 +76,6 @@ public class Impayes {
         
         PaiementBO pb = new PaiementBO();
         List <Paiement> lp = pb.getByNom(choix);
-        System.out.println("taille liste paiement fel disp " + choix + " = " + lp.size());
         Paiement pnew = new Paiement();
         
         //System.out.println("TEST ********* "  + pb.getMostRecent(b,choix).getId());
@@ -142,6 +133,7 @@ public class Impayes {
             }
         }        
         li.setImpayes(liste);
+        System.out.println(liste.size());
         return new ModelAndView("ListeImpayes","li",li);
     }
 }

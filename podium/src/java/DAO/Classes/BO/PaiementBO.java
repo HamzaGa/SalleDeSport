@@ -43,5 +43,20 @@ public class PaiementBO implements IPaiementBO {
     public Paiement getMostRecent(Long numInsc, String nomDisp) {
         return(paiementdao.getMostRecent(numInsc,nomDisp));
     }
+
+    @Override
+    public List<Paiement> getByYear(String year) {
+        return(paiementdao.getByYear(year));
+    }
+
+    @Override
+    public List<Paiement> getByYearMonth(String year, String month) {
+        return(paiementdao.getByYearMonth(year, month));
+    }
+
+    @Override
+    public List<Paiement> getByYearMonthDay(String date) {
+        return(paiementdao.getByYearMonthDay(date));
+    }
     
 }

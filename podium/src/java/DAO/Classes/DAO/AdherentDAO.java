@@ -98,6 +98,18 @@ public class AdherentDAO implements IAdherentDAO {
       session.close();
       return a;     
     }
+
+    @Override
+    public String getOldestYear() {
+      factory = FactoryUtil.getSessionFactory();
+      session = factory.openSession();  
+      session.beginTransaction();
+      q = session.createQuery("SELECT MIN(YEAR(date_insc)) from Adherent");
+      String annee = Integer.toString((int)q.uniqueResult());
+      session.getTransaction().commit();
+      session.close();
+      return annee; 
+    }
     
     
 }

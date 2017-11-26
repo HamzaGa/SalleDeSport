@@ -36,22 +36,20 @@
 						<tbody>
 							<c:set var="i" value="0"/>
                                                     <c:forEach items="${adherents.adherents}" var="a"> 
-                                                        
-                                                    <form:form cssClass="form-horizontal" method="POST" action="formApercu.htm" modelAttribute="adherents" id="${i}">
-                                                        <c:forEach var="d" items="${a.disciplines}">
-                                                            <form:input type="hidden" path="a.numInsc" value="${a.numInsc}" />
-                                                        <tr onclick= "javascript:document.getElementById(${i}).submit();">
-                                                                    <td width = "5%">${a.numInsc}</td>
-                                                                    <td width = "30%">${a.nom}  ${a.prenom}</td>
-                                                                    <td width = "20%">${d.nom}</td>
-                                                                    <td width = "10%">${d.groupe}</td>
-                                                                    <td width = "15%"> ${a.tel}</td>
-                                                                    <td width = "20%"> ${a.dateInsc}</td>
-                                                        </tr>
-                                                                <c:set var="i" value="${i+ 1}"/>
-
-                                                            </c:forEach>
-                                                    </form:form>
+                                                        <form:form cssClass="form-horizontal" method="POST" action="formApercu.htm" modelAttribute="adherents" id="${i}">
+                                                            <c:forEach var="d" items="${a.disciplines}">
+                                                                <form:input type="hidden" path="a.numInsc" value="${a.numInsc}" />
+                                                                    <tr onclick= "javascript:document.getElementById(${i}).submit();">
+                                                                        <td width = "5%">${a.numInsc}</td>
+                                                                        <td width = "30%">${a.nom}  ${a.prenom}</td>
+                                                                        <td width = "20%">${d.nom}</td>
+                                                                        <td width = "10%">${d.groupe}</td>
+                                                                        <td width = "15%"> ${a.tel}</td>
+                                                                        <td width = "20%"> ${a.dateInsc}</td>
+                                                                    </tr>
+                                                                </c:forEach>
+                                                            <c:set var="i" value="${i+ 1}"/>
+                                                        </form:form>
                                                     </c:forEach>
 						</tbody>
 					</table>

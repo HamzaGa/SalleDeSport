@@ -6,6 +6,8 @@
 <!DOCTYPE html>
  
 <%@include file="/WEB-INF/headeruser.html" %>
+ <meta charset="UTF-8" />
+
 <div class="col-md-10">		
     <div class="row">
         <div class="col-md-12">
@@ -134,8 +136,8 @@
                                                                     <div class="panel-heading">
                                                             <div class="row">
                                                                 <div class="col-md-5"></div>    
-                                                                <div class="col-md-7"><H3><b>Disciplines:</b>
-                                                                        <select class="selectpicker" onChange="afficherDisp();" id="listeDisp">
+                                                                <div class="col-sm-2"><H3><b>Disciplines:</b>
+                                                                        <select class="form-control" onChange="afficherDisp();" id="listeDisp">
                                                                           <option value="1">1</option>
                                                                           <option value="2">2</option>
                                                                           <option value="3">3</option>
@@ -154,7 +156,7 @@
 								  <div class="form-group">
 								    <label for="inputEmail3" class="col-sm-5 control-label">Enfants </label>
 								    <div class="col-sm-7">
-								      <form:select id="c11" onChange="verrou();" cssClass="selectpicker" path="dispchoix.id">
+								      <form:select id="c11" onChange="verrou();" cssClass="form-control" path="dispchoix.id">
                                                                           <form:option value="0">Choisir une discipline</form:option>
                                                                           <c:forEach var="listValue" items="${f.d}">
                                                                               
@@ -174,7 +176,7 @@
 								  <div class="form-group">
 								    <label for="inputEmail3" class="col-sm-5 control-label">Hommes </label>
 								    <div class="col-sm-7">
-								    <form:select id="c12" onChange="verrou();" cssClass="selectpicker" path="dispchoix.id">
+								    <form:select id="c12" onChange="verrou();" cssClass="form-control" path="dispchoix.id">
                                                                           <form:option value="0">Choisir une discipline</form:option>
                                                                           <c:forEach var="listValue" items="${f.d}">
                                                                               
@@ -194,7 +196,7 @@
 								  <div class="form-group">
 								    <label for="inputEmail3" class="col-sm-5 control-label">Femmes </label>
 								    <div class="col-sm-7">
-								      <form:select id="c13" onChange="verrou();" cssClass="selectpicker" path="dispchoix.id">
+								      <form:select id="c13" onChange="verrou();" cssClass="form-control" path="dispchoix.id">
                                                                         <form:option value="0">Choisir une discipline</form:option>
                                                                           <c:forEach var="listValue" items="${f.d}">
                                                                               
@@ -214,7 +216,7 @@
 								  <div class="form-group">
 								    <label for="inputEmail3" class="col-sm-5 control-label">Mixte </label>
 								    <div class="col-sm-7">
-								      <form:select id="c14" onChange="verrou();" cssClass="selectpicker" path="dispchoix.id">
+								      <form:select id="c14" onChange="verrou();" cssClass="form-control" path="dispchoix.id">
                                                                           <form:option value="0">Choisir une discipline</form:option>
                                                                           <c:forEach var="listValue" items="${f.d}">
                                                                               
@@ -240,7 +242,7 @@
 								  <div class="form-group">
 								    <label for="inputEmail3" class="col-sm-5 control-label">Enfants </label>
 								    <div class="col-sm-7">
-								      <form:select id="c21" onChange="verrou();" cssClass="selectpicker" path="dispchoix2.id">
+								      <form:select id="c21" onChange="verrou();" cssClass="form-control" path="dispchoix2.id">
                                                                           <form:option value="0">Choisir une discipline</form:option>
                                                                           <c:forEach var="listValue" items="${f.d}">
                                                                               
@@ -260,7 +262,7 @@
 								  <div class="form-group">
 								    <label for="inputEmail3" class="col-sm-5 control-label">Hommes </label>
 								    <div class="col-sm-7">
-								      <form:select onChange="verrou();" id="c22" cssClass="selectpicker" path="dispchoix2.id">
+								      <form:select onChange="verrou();" id="c22" cssClass="form-control" path="dispchoix2.id">
                                                                           <form:option value="0">Choisir une discipline</form:option>
                                                                           <c:forEach var="listValue" items="${f.d}">
                                                                               
@@ -280,7 +282,7 @@
 								  <div class="form-group">
 								    <label for="inputEmail3" class="col-sm-5 control-label">Femmes </label>
 								    <div class="col-sm-7">
-								      <form:select onChange="verrou();" id="c23" cssClass="selectpicker" path="dispchoix2.id">
+								      <form:select onChange="verrou();" id="c23" cssClass="form-control" path="dispchoix2.id">
                                                                         <form:option value="0">Choisir une discipline</form:option>
                                                                           <c:forEach var="listValue" items="${f.d}">
                                                                               
@@ -300,7 +302,7 @@
 								  <div class="form-group">
 								    <label for="inputEmail3" class="col-sm-5 control-label">Mixte </label>
 								    <div class="col-sm-7">
-								      <form:select onChange="verrou();" id="c24" cssClass="selectpicker" path="dispchoix2.id">
+								      <form:select onChange="verrou();" id="c24" cssClass="form-control" path="dispchoix2.id">
                                                                           <form:option value="0">Choisir une discipline</form:option>
                                                                           <c:forEach var="listValue" items="${f.d}">
                                                                               
@@ -326,7 +328,7 @@
 								  <div class="form-group">
 								    <label for="inputEmail3" class="col-sm-5 control-label">Enfants </label>
 								    <div class="col-sm-7">
-								      <form:select onChange="verrou();" id="c31" cssClass="selectpicker" path="dispchoix3.id">
+								      <form:select onChange="verrou();" id="c31" cssClass="form-control" path="dispchoix3.id">
                                                                           <form:option value="0">Choisir une discipline</form:option>
                                                                           <c:forEach var="listValue" items="${f.d}">
                                                                               
@@ -346,7 +348,7 @@
 								  <div class="form-group">
 								    <label for="inputEmail3" class="col-sm-5 control-label">Hommes </label>
 								    <div class="col-sm-7">
-								      <form:select onChange="verrou();" id="c32" cssClass="selectpicker" path="dispchoix3.id">
+								      <form:select onChange="verrou();" id="c32" cssClass="form-control" path="dispchoix3.id">
                                                                           <form:option value="0">Choisir une discipline</form:option>
                                                                           <c:forEach var="listValue" items="${f.d}">
                                                                               
@@ -366,7 +368,7 @@
 								  <div class="form-group">
 								    <label for="inputEmail3" class="col-sm-5 control-label">Femmes </label>
 								    <div class="col-sm-7">
-								      <form:select onChange="verrou();" id="c33" cssClass="selectpicker" path="dispchoix3.id">
+								      <form:select onChange="verrou();" id="c33" cssClass="form-control" path="dispchoix3.id">
                                                                         <form:option value="0">Choisir une discipline</form:option>
                                                                           <c:forEach var="listValue" items="${f.d}">
                                                                               
@@ -386,7 +388,7 @@
 								  <div class="form-group">
 								    <label for="inputEmail3" class="col-sm-5 control-label">Mixte </label>
 								    <div class="col-sm-7">
-								      <form:select onChange="verrou();" id="c34" cssClass="selectpicker" path="dispchoix3.id">
+								      <form:select onChange="verrou();" id="c34" cssClass="form-control" path="dispchoix3.id">
                                                                           <form:option value="0">Choisir une discipline</form:option>
                                                                           <c:forEach var="listValue" items="${f.d}">
                                                                               

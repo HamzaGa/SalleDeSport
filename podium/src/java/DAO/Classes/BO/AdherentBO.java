@@ -43,4 +43,9 @@ public class AdherentBO implements IAdherentBO {
     public Adherent getById(long id) {
         return adherentDAO.getById(id);
     }
+
+    @Override
+    public String getOldestYear() {
+        return adherentDAO.getOldestYear();
+    }
 }

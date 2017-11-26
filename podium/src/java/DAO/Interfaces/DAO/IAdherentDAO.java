@@ -18,4 +18,5 @@ public interface IAdherentDAO {
 	void delete(Adherent adherent);
         List <Adherent> get();
         Adherent getById(long id);
+        String getOldestYear();
 }

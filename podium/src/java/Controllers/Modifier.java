@@ -64,7 +64,6 @@ public class Modifier {
         
         ad.setDisciplines(set);
         adb.update(ad);
-        //f.setA(ad);
         System.out.println("UPDATEDDDDD");
         return new ModelAndView("FormulaireApercu","f",f);
 }
@@ -87,9 +86,10 @@ public class Modifier {
             if(f.getDispchoix3().getId()!=0)
                 set.add(f.getDispchoix3());
         ad.setDisciplines(set);
+        Adherent ad1 = ad;
         adb.delete(ad);
         System.out.println("suppression faite");
-        return new ModelAndView("ListeAdherents");
+        return new ModelAndView("SuppressionValide","adherent",ad1);
     }
     
     @RequestMapping(value = "/Modifier.htm", method = RequestMethod.POST, params="supprimerDisp1")
@@ -151,8 +151,6 @@ public class Modifier {
                 set.add(f.getDispchoix());
         if(f.getDispchoix2()!=null)
             if(f.getDispchoix2().getId()!=0)
-                //f.setDispchoix2(null);
-                System.out.println("AHLAAAAAAAAAAAAAAAA");
         if(f.getDispchoix3()!=null)
             if(f.getDispchoix3().getId()!=0)
                 set.add(f.getDispchoix3());

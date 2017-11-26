@@ -99,5 +99,50 @@ public class PaiementDAO implements IPaiementDAO {
       session.close();
       return p;  
     }
+
+    @Override
+    public List<Paiement> getByYear(String year) {
+      factory = f.getSessionFactory();
+      session = factory.openSession();  
+      tx = session.beginTransaction();
+      Query query = session.createQuery("from Paiement where date_p like :year");
+      query.setParameter("year",year.concat("%"));
+      List <Paiement> liste = query.list();
+      for (Paiement p : liste) Hibernate.initialize(p.getDiscipline());
+      for (Paiement p : liste) Hibernate.initialize(p.getAdherent());
+      tx.commit();
+      session.close();
+      return liste;
+    }
+
+    @Override
+    public List<Paiement> getByYearMonth(String year, String month) {
+      factory = f.getSessionFactory();
+      session = factory.openSession();  
+      tx = session.beginTransaction();
+      Query query = session.createQuery("from Paiement where date_p like :date");
+      query.setParameter("date",year.concat("-").concat(month).concat("%"));
+      List <Paiement> liste = query.list();
+      for (Paiement p : liste) Hibernate.initialize(p.getDiscipline());
+      for (Paiement p : liste) Hibernate.initialize(p.getAdherent());
+      tx.commit();
+      session.close();
+      return liste;
+    }
+
+    @Override
+    public List<Paiement> getByYearMonthDay(String date) {
+      factory = f.getSessionFactory();
+      session = factory.openSession();  
+      tx = session.beginTransaction();
+      Query query = session.createQuery("from Paiement where date_p like :date");
+      query.setParameter("date",date.concat("%"));
+      List <Paiement> liste = query.list();
+      for (Paiement p : liste) Hibernate.initialize(p.getDiscipline());
+      for (Paiement p : liste) Hibernate.initialize(p.getAdherent());
+      tx.commit();
+      session.close();
+      return liste; 
+    }
        
 }
